@@ -6,8 +6,9 @@ interface Props{
     closeForm: () => void;
     activity:Activity | undefined;
     handleActivitySubmission: (activity: Activity) => void;
+    submitting: boolean;
 }
-const ActivityForm = ({closeForm, activity: selectedActivity, handleActivitySubmission}:Props) => {
+const ActivityForm = ({closeForm, activity: selectedActivity, handleActivitySubmission, submitting}:Props) => {
     
     const InitialState = selectedActivity ?? {
         id: '',
@@ -33,13 +34,13 @@ const ActivityForm = ({closeForm, activity: selectedActivity, handleActivitySubm
     return (
         <Segment clearing>
             <Form onSubmit={handleSubmit} autoComplete='off'>
-                <Form.Input placeholder= 'title' value={activity.title} name='Title' onChange={handleInputChange} />
-                <Form.TextArea placeholder= 'description' value={activity.description} name='description' nChange={handleInputChange}/>
+                <Form.Input placeholder= 'title' value={activity.title} name='title' onChange={handleInputChange} />
+                <Form.TextArea placeholder= 'description' value={activity.description} name='description' onChange={handleInputChange}/>
                 <Form.Input placeholder= 'category' value={activity.category} name= 'category' onChange={handleInputChange}/>
-                <Form.Input placeholder= 'date' value={activity.date} name= 'date' onChange={handleInputChange}/>
+                <Form.Input type= 'date' placeholder= 'date' value={activity.date} name= 'date' onChange={handleInputChange}/>
                 <Form.Input placeholder= 'city' value={activity.city} name= 'city' onChange={handleInputChange}/>
                 <Form.Input placeholder= 'venue' value={activity.venue} name= 'venue' onChange={handleInputChange}/>
-                <Button floated='right' positive type='submit' content='Submit'/>
+                <Button loading= {submitting} floated='right' positive type='submit' content='Submit'/>
                 <Button onClick={closeForm} floated= 'right' type='button' content='Cancel'/>
             </Form>
         </Segment>

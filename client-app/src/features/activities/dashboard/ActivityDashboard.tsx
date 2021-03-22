@@ -1,15 +1,12 @@
 import { observer } from 'mobx-react-lite'
 import { Grid} from 'semantic-ui-react'
-import { Activity } from '../../../app/models/activity'
 import { useStore } from '../../../app/stores/store'
 import ActivityDetails from '../Details/ActivityDetails'
 import ActivityForm from '../form/ActivityForm'
 import ActivityList from './ActivityList'
 
-interface Props{
-    activities:Activity[];
-}
-const ActivityDashboard = ({activities}:Props) => {
+
+const ActivityDashboard = () => {
     const {activityStore} = useStore();
     const {selectedActivity, editMode}= activityStore;
 

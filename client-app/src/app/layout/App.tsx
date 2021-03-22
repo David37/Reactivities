@@ -21,7 +21,6 @@ function App() {
       <NavBar/>
       <Container style={{marginTop:'7em'}}>
         <ActivityDashboard 
-          activities={activityStore.activities} 
         />
       </Container>
     </>

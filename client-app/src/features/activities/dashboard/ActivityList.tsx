@@ -6,7 +6,7 @@ import { useStore } from '../../../app/stores/store';
 
 const ActivityList = () => {
     const {activityStore} = useStore();
-    const {loading: submitting, deleteActivity, activities} = activityStore;
+    const {loading: submitting, deleteActivity, activitiesByDate: activities} = activityStore;
 
     const [target, setTarget] =useState('');
 

@@ -1,7 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import { Button, Container, Menu } from 'semantic-ui-react';
-import TestErrors from '../../features/errors/TestErrors';
-
 
 const NavBar = () => {
     return (

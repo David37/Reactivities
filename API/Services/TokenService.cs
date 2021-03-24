@@ -22,7 +22,7 @@ namespace API.Services
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.NameIdentifier, user.UserName),
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Email, user.Email),
             };
             
@@ -38,7 +38,9 @@ namespace API.Services
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
+
             return tokenHandler.WriteToken(token);
         }
     }
